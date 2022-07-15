@@ -13,6 +13,6 @@ while True:
     if sum(arr) == n:
         print(n, " = " , " + ".join(str(i) for i in arr) , sep="")
     else:
-        print(n, "is NOT perfect")
+        print(n, "is NOT perfect.")
 
 
