@@ -19,12 +19,3 @@ print("1" if flag == 1 else "0")
     
 
 
-
-
-#if text[i] == a[len(a)-i]:
- #       continue
-  
-  #  else:
-   #     print(0)
-
-# print(1)
