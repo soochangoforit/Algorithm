@@ -7,9 +7,12 @@ import sys
 case = int(sys.stdin.readline())
 stu_list = []
 
-for i in range(case):
-    weight , height = map(int, input().split())
-    stu_list.append((weight, height)) # 만약, 딕셔너리로 넣게 되면, 몸무게가 같아지면 제대로 된 결과값을 가져오지 못 한다.
+#for i in range(case):
+#    weight , height = map(int, input().split())
+#    stu_list.append((weight, height)) # 만약, 딕셔너리로 넣게 되면, 몸무게가 같아지면 제대로 된 결과값을 가져오지 못 한다.
+
+stu_list = [ tuple(map(int, sys.stdin.readline().strip().split(" "))) for _ in range(case)]
+
 
 for stu in stu_list:
     rate = 1 
