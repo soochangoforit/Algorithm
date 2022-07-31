@@ -19,7 +19,7 @@ def binary(n, N, start, end):
     else:
         return binary(n, N, m+1, end)
 
-# 리스트 N에 있는 요소들의 각각이 몇개가 있는지를 dictionary에 담아서 저장해놓겠습니다.
+# 리스트 N에 있는 요소들의 각각이 몇개가 있는지를 dictionary에 담는다.
 n_dic = {}
 for n in N:
     start = 0
@@ -28,3 +28,4 @@ for n in N:
         n_dic[n] = binary(n, N, start, end)
 
 print(' '.join(str(n_dic[x]) if x in n_dic else '0' for x in M ))
+
