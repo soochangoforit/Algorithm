@@ -35,8 +35,8 @@ def canBite(y,x,size):
     Q.append((y,x))
     # 초기 아기 상어 좌표를 0으로 방문처리, 이동한 거리 없음으로 0
     visited[y][x] = 0
-    # 실제 좌표에서도 의미 없는 0의 값 설정
-    #sea[y][x] = 0
+
+    sea[y][x] = 0
 
     canEat = []
 
@@ -65,7 +65,7 @@ def canBite(y,x,size):
     # 가장 가까이 있는 좌표가 우선 순위가 높고
     # 그러한 값이 많으면 제일 위에 있는 값이 높고
     # 그러한 값이 많으면 가장 좌측에 있는 값이 우선순위가 높다.
-    return sorted(canEat, key = lambda x: (-x[2],-x[0],-x[1]))
+    return sorted(canEat, key = lambda x: (x[2],x[0],x[1]))
 
 # 물고기를 먹은 횟수
 cnt = 0
@@ -80,16 +80,18 @@ while True:
         break
     
     # 먹을 수 있는 좌표중, 우선 순위가 높은 좌표를 반환, 곧 아기 상어가 먹기 위해 이동할 위치
-    ny, nx, distance = sharkCanEat.pop()
+    ny, nx, distance = sharkCanEat.pop(0)
 
     # 움직인 값이 곧 최종 result의 결과가 된다
     result += distance
+
     # 우선 순위가 가장 높은 좌표로 아기 상어가 이동
     y,x = ny,nx
 
-    # 아기 상어가 물고기를 먹기 위해 이동을 했고, 해당 좌표는 다 먹었음으로 0으로 처리한다.
+    # 먹고 나서 먹은 위치를 0으로 초기화 해야하지만, while문을 통해서 canBite로 들어가면 알아서
+    # 시작한 좌표에 대해 초기화를 시켜준다.
+    # 따라서, 여기에 굳이 초기화 좌표가 또 들어가는게 의미가 없다.
     sea[y][x] = 0
-    sea[ny][nx] = 0
 
     # 먹고 나서는 추후 아기 상어의 크기를 증가를 위한 여부를 확인하기 위해 cnt 값을 +1 증가
     cnt += 1
@@ -101,7 +103,6 @@ while True:
         cnt = 0
 
 print(result)
-
 
 
 
