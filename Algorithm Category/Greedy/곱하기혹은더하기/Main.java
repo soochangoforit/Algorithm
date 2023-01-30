@@ -14,7 +14,7 @@ public class Main {
             int num = str.charAt(i) - '0';
             if (num <= 1 || result <= 1 ){
                 result += num;
-            }
+            } 
             else {
                 result *= num;
             }
