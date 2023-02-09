@@ -77,6 +77,7 @@ public class Main {
 
         // BFS를 수행한 결과 출력
         System.out.println(bfs(0, 0));
+        sc.close();
     }
     
 }
