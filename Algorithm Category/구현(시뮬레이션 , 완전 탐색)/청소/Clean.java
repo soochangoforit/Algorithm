@@ -1,6 +1,6 @@
 import java.util.*;
 
-class MySolution {
+class Clean {
     
 	public int[] solution(int[][] board, int k){
 		int[] answer = new int[2]; 
@@ -61,7 +61,7 @@ class MySolution {
 	}
 
 	public static void main(String[] args){
-		MySolution T = new MySolution();
+		Clean T = new Clean();
 
         int[][] arr1 = {{0, 0, 0, 0, 0}, 
         {0, 1, 1, 0, 0}, 
