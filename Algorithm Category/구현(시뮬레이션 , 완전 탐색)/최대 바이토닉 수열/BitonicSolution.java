@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Bitonic {
+class BitonicSolution {
 	public int solution(int[] nums){
 		int answer = 0;
 
@@ -18,24 +18,25 @@ class Bitonic {
             // 현재 봉우리 위치도 길이 값에 우선적으로 포함
             int cnt = 1;
 
-            // 증가하는 경우
-            for (int j = peak-1; j >= 0; j--) {
-                if(nums[j] < nums[j+1]) {
-                    cnt++;
-                }else{
-                    break;
-                }
-            }
+            // 좌측으로 움직일 index 좌표
+            int left = peak;
+            
+            // 우측으로 움직일 index 좌표
+            int right = peak;
 
+            // 좌측으로 이동하는 경우
+            while(left > 0 && nums[left-1] < nums[left]) {
+                left--;
+                cnt++;
+            }
+          
             // 감소하는 경우
-            for (int j = peak; j < nums.length-1; j++) {
-                if(nums[j] > nums[j+1]) {
-                    cnt++;
-                }else{
-                    break;
-                }
+            while(right < nums.length-1 && nums[right] > nums[right+1]){
+                right++;
+                cnt++;
             }
-
+           
+            // 각각의 봉우리 중 최대 길이 값 찾기
             answer = Math.max(answer, cnt);
         }
 
@@ -45,10 +46,11 @@ class Bitonic {
 	}
 
 	public static void main(String[] args){
-		Bitonic T = new Bitonic();
+		BitonicSolution T = new BitonicSolution();
 		System.out.println(T.solution(new int[]{1, 2, 1, 2, 3, 2, 1}));
 		System.out.println(T.solution(new int[]{1, 1, 2, 3, 5, 7, 4, 3, 1, 2}));
 		System.out.println(T.solution(new int[]{3, 2, 1, 3, 2, 4, 6, 7, 3, 1}));
 		System.out.println(T.solution(new int[]{1, 3, 1, 2, 1, 5, 3, 2, 1, 1}));
 	}
 }
+
