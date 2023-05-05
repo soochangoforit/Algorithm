@@ -14,7 +14,7 @@ class WarGame {
 		}
 
 		// 1. 전투력이 높은 순으로 정렬 (내림 차순 정렬, 같다면 알파벳 순으로 오름차순 정렬)
-		Arrays.sort(studentWarPoint, (a, b) -> Integer.parseInt(b[2]) == Integer.parseInt(a[2]) ? a[1].compareTo(b[1]) : Integer.parseInt(b[2]) - Integer.parseInt(a[2]));
+		Arrays.sort(studentWarPoint, (a, b) -> Integer.parseInt(b[2]) - Integer.parseInt(a[2]));
 
 		int i = 0;
 		while(i < n) {
