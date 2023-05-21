@@ -2,12 +2,12 @@ import java.util.*;
 
 class IpAddressSec {
     int len;
-    List<String> temp;
-    List<String> result;
+    LinkedList<String> temp;
+    ArrayList<String> result;
 
     public String[] solution(String s) {
         len = s.length();
-        temp = new ArrayList<>();
+        temp = new LinkedList<>();
         result = new ArrayList<>();
 
         DFS(0, s);
@@ -38,15 +38,17 @@ class IpAddressSec {
                 String segment = input.substring(start, start + i);
 
                 // 0으로 시작하는 2자리 이상 숫자 제외 || 3자리 숫자로 이루어지고 255 초과 숫자 제외
+                //유효하지 않은 경우(예: 255보다 크거나 0으로 시작하는 여러 자리 숫자) 동일한 위치에서 시작하는 더 긴 세그먼트를 확인할 이유가 없다. (break 적절)
+                // 다음으로 더 긴 세그먼트도 유효하지 않다는 것을 이미 알고 있기 때문에 continue는 계산 낭비입니다.
                 if((segment.startsWith("0") && segment.length() > 1) || (Integer.parseInt(segment) > 255)) {
                     // continue 라는 의미는 현재 level에서 다음 경우의 수를 생각하는 의미이고
                     // continue로 인해서 for문의 마지막에 도달한 경우, 이전 level에서 다음 경우로 넘어간다.
-                    continue;
+                    break;
                 }
 
                 temp.add(segment);
                 DFS(start + i, input);
-                temp.remove(temp.size() - 1);
+                temp.pollLast();
             }
         }
     }
