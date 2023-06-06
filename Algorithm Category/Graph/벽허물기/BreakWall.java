@@ -44,6 +44,7 @@ class BreakWall {
                 // 초기화 하는 경우를 제외하면 이미 최소값이 현재 노드에 대한 전체 Table에 Update 되어 있다.
                 // Integer.MAX_VALUE말고 다른 값으로 이미 초기화 되어있다면 해당 값이 최소값이라서
                 // 더 이상 pq에 들어간 해당 간선은 더 이상 고려하지 않아도 좋다 (이미 거쳐갔기에)
+                // 보통 가중치 우선순위가 낮아서, 추후에 pq에서 뽑아지는 간선이 주로 continue로 빠져 나간다. (앞서 다른 간선에 의해 방문했었기에)
                 if(curMoveCount > cost[curY][curX]) continue;
 
                 for(int k = 0; k < 4; k++) {
