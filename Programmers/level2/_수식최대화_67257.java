@@ -7,7 +7,7 @@ class Solution {
     static boolean[] visit = new boolean[3];
     // 숫자를 저장하는 리스트입니다.
     static ArrayList<Long> nums = new ArrayList<>();
-    // 연산자를 저장하는 리스트입니다.
+    // 연산자를 저장하는 리스트입니다.  
     static ArrayList<Character> ops = new ArrayList<>();
     // 연산자 우선순위를 저장하는 배열입니다.
     static char[] realCalculators = new char[3];
