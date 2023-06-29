@@ -24,13 +24,13 @@ class Solution {
             return;
         }
         else {
-            // 1.  1¹ø ºÎÅÍ ~ size -1 ¹ø±îÁöÀÇ ¸ðµç ¿øÅ¾À» ÃÖÁ¾ ¸ñÀûÁö(3)°¡ ¾Æ´Ñ, ³²Àº Ãà(2)À¸·Î ÀüºÎ ÀÌµ¿
+            // 1.  1ë²ˆ ë¶€í„° ~ size -1 ë²ˆê¹Œì§€ì˜ ëª¨ë“  ì›íƒ‘ì„ ìµœì¢… ëª©ì ì§€(3)ê°€ ì•„ë‹Œ, ë‚¨ì€ ì¶•(2)ìœ¼ë¡œ ì „ë¶€ ì´ë™
             dfs(size - 1, startPoint, rest_of_point, endPoint);
             
-            // 2. size ¸¸Å­ÀÇ ¼ýÀÚ¸¦ °¡Áø °¡Àå Å« ¿øÆÇÀ» ½ÃÀÛ Ãà(1)¿¡¼­ µµÂø Ãà(3)À¸·Î ÀÌµ¿
+            // 2. size ë§Œí¼ì˜ ìˆ«ìžë¥¼ ê°€ì§„ ê°€ìž¥ í° ì›íŒì„ ì‹œìž‘ ì¶•(1)ì—ì„œ ë„ì°© ì¶•(3)ìœ¼ë¡œ ì´ë™
             answersList.add(new int[] {startPoint, endPoint});
             
-            // 3. 1¹ø ºÎÅÍ ~ size - 1 ¹ø±îÁöÀÇ ¸ðµç ¿øÅ¾À» ³²Àº Ãà(2)¿¡¼­ µµÂø Ãà(3)À¸·Î ¸ðµÎ ÀÌµ¿
+            // 3. 1ë²ˆ ë¶€í„° ~ size - 1 ë²ˆê¹Œì§€ì˜ ëª¨ë“  ì›íƒ‘ì„ ë‚¨ì€ ì¶•(2)ì—ì„œ ë„ì°© ì¶•(3)ìœ¼ë¡œ ëª¨ë‘ ì´ë™
             dfs(size - 1, rest_of_point, endPoint, startPoint);
         }
     }
